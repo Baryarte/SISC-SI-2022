@@ -1,7 +1,13 @@
+import {db} from "./firebase/firebase-config";
+import {setDoc, addDoc, doc, collection} from "firebase/firestore";
 import logo from './logo.svg';
 import './App.css';
+import {getMaterial, getMaterials, getRecipe} from "./firebase/queries";
 
 function App() {
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -17,6 +23,7 @@ function App() {
         >
           Learn React
         </a>
+        <button onClick={()=> getRecipe("papel reciclado1")}>Test db</button>
       </header>
     </div>
   );
