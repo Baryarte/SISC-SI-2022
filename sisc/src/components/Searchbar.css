@@ -1,0 +1,17 @@
+.search-box {
+  left: 20%;
+  top: 30%;
+  width: 100%;
+  background-color: white;
+  color: grey;
+  border-radius: 5px;
+  size: 32px;
+  padding: 0 10px;
+  font-size: large;
+}
+
+.search-container {
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+}
