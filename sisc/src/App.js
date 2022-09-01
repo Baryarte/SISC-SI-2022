@@ -15,6 +15,12 @@ const App = () => {
               <h1 className="page-title">SISTEMA DE INFORMAÇÃO SOBRE RECICLAGEM</h1>
               <h1>Materiais</h1>
               <Searchbar />
+              <div className="reccontainer">
+                <Recomendation />
+                <Recomendation />
+                <Recomendation />
+              </div>
+
             </div>
           </div>} />
         <Route path="/Locais" element={<div className="app">
@@ -22,6 +28,11 @@ const App = () => {
             <h1 className="page-title">SISTEMA DE INFORMAÇÃO SOBRE RECICLAGEM</h1>
             <h1>Locais</h1>
             <Searchbar />
+            <div className="reccontainer">
+              <Recomendation />
+              <Recomendation />
+              <Recomendation />
+            </div>
           </div>
         </div>} />
         <Route path="/Favoritos" element={<h1>Favoritos</h1>} />

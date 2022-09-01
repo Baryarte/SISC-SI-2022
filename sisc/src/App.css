@@ -31,3 +31,9 @@
 .Searchbar {
     top: 50%;
 }
+
+.reccontainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
