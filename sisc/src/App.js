@@ -21,9 +21,9 @@ const App = () => {
               <h1>Mais pesquisados:</h1>
               <div >
                 <nav className="reccontainer">
-                  <img className="rec" src={Img_Papel} alt="papel" />
-                  <img className="rec" src={Img_Garrafa} alt="garrafa" />
-                  <img className="rec" src={Img_Pneu} alt="pneu" />
+                  <Link to="1"><img className="rec" src={Img_Papel} alt="papel" /></Link>
+                  <Link to="2"><img className="rec" src={Img_Garrafa} alt="garrafa" /></Link>
+                  <Link to="3"><img className="rec" src={Img_Pneu} alt="pneu" /></Link>
                 </nav>
               </div>
 
