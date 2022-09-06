@@ -36,3 +36,28 @@
 .footer-button:hover {
     background: #C4C4C4;
 }
+
+.reccontainer {
+    display: flex;
+    /*width: 100%;*/
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    flex-direction: row;
+}
+
+.reclink{
+    background: rebeccapurple;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.rec {
+    flex-grow: 3;
+    flex-basis: 100px;
+    flex-shrink: 1;
+    width: 100%;
+    /*max-width: 90%;*/
+    cursor: pointer;
+}

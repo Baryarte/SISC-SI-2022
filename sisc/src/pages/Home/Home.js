@@ -16,9 +16,9 @@ function Home() {
             <p className={"most-searched-title"}>Mais pesquisados:</p>
             <div>
                 <nav className="reccontainer">
-                    <Link to="1"><img className="rec" src={Img_Papel} alt="papel"/></Link>
-                    <Link to="2"><img className="rec" src={Img_Garrafa} alt="garrafa"/></Link>
-                    <Link to="3"><img className="rec" src={Img_Pneu} alt="pneu"/></Link>
+                    <Link className={"reclink"} to={"/papel_reciclado"} state={{recipeId: "papel reciclado"}} ><img className="rec" src={Img_Papel} alt="papel"/></Link>
+                    <Link className={"reclink"} to="2"><img className="rec" src={Img_Garrafa} alt="garrafa"/></Link>
+                    <Link className={"reclink"} to="3"><img className="rec" src={Img_Pneu} alt="pneu"/></Link>
                 </nav>
             </div>
             <div className={"footer-container"}>
