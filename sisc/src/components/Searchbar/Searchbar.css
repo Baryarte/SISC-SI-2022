@@ -1,17 +1,20 @@
 .search-box {
-  left: 20%;
-  top: 30%;
-  width: 100%;
-  background-color: white;
+  /*position: absolute;*/
+  width: 30rem;
+  /*margin-left: 7%;*/
+  background-color: #D9D9D9;
   color: grey;
   border-radius: 5px;
+  border-style: solid;
   size: 32px;
   padding: 0 10px;
   font-size: large;
 }
 
 .search-container {
+  /*background: red;*/
   margin: 15px 0;
   width: 100%;
   display: flex;
+  justify-content: center;
 }

@@ -1,0 +1,59 @@
+import React, {useEffect, useState} from "react";
+import {useLocation, useParams} from "react-router-dom";
+import {getRecipe} from "../../firebase/queries";
+import "./Recipe.css";
+
+function Recipe(props) {
+    const [recipe, setRecipe] = useState();
+    const {recipeId} = useLocation().state;
+
+    useEffect(() => {
+        (async () => {
+            const recipeData = await getRecipe(recipeId);
+            if (recipeData.exists()) {
+                setRecipe(recipeData.data());
+            }
+            console.count("recipeData");
+        })();
+    }, []);
+
+    useEffect(() => {
+        console.log(recipe && recipe.name);
+    }, [recipe]);
+
+    const steps = recipe && recipe.steps.map(step => <li>{step}</li>);
+    const ingredients = recipe && recipe.ingredients.map(ingredient => <li>{ingredient}</li>);
+    const materials = recipe && recipe.materials.map(material => <li>{material}</li>);
+
+    return (
+        <div>
+            <h1 className={"recipe-title"}>{recipe && recipe.name}</h1>
+            <span className={"star"}>&#9733;</span>
+            <figure>
+                <img className={"recipe-image"} src={recipe && recipe.image}/>
+                <figcaption>Papel reciclado feito em casa</figcaption>
+            </figure>
+            <div>
+                <h2 className={"recipe-ingredients-header"}>Ingredientes:</h2>
+                <ul className={"recipe-ingredients-list"}>
+                    {ingredients}
+                </ul>
+            </div>
+            <div>
+                <h2 className={"recipe-materials-header"}>Materiais:</h2>
+                <ul className={"recipe-materials-list"}>
+                    {materials}
+                </ul>
+            </div>
+            <div>
+                <p className={"recipe-steps-header"}>Passo a passo:</p>
+                <ol className={"recipe-steps-list"}>
+                    {steps}
+                </ol>
+
+            </div>
+        </div>
+    );
+}
+
+export default Recipe;
