@@ -6,3 +6,4 @@ sisc/.env
 .idea/vcs.xml
 .idea/workspace.xml
 /.idea/
+.DS_Store
