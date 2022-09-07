@@ -5,10 +5,11 @@ import { Home } from "./pages/Home/Home";
 import { Locais } from "./pages/Locais";
 import Recipe from "./pages/Recipe/Recipe";
 import Material from "./pages/Material/Material";
-import { getMaterial } from "./firebase/queries";
+import { getLocal } from "./firebase/queries";
+import Local from "./pages/Local/Local";
 
 const App = () => {
-    console.log(getMaterial("papel"));
+    console.log(getLocal("ls"));
     return (
         <>
 
@@ -19,7 +20,7 @@ const App = () => {
                 <Route path="/papel_reciclado" element={<Recipe />} />
                 <Route path="/papel" element={<Material />} />
                 <Route path="/3" element={<h1>3</h1>} />
-                <Route path="/Locais/1" element={<h1>Local 1</h1>} />
+                <Route path="/Locais/ls" element={<Local />} />
                 <Route path="/Locais/2" element={<h1>Local 2</h1>} />
                 <Route path="/Locais/3" element={<h1>Local 3</h1>} />
             </Routes>

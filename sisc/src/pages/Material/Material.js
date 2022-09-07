@@ -34,9 +34,13 @@ function Material(props) {
         <img className={"material-image"} src={image} />
         <figcaption>Imagem que vem do banco de dados</figcaption>
       </figure>
-      <h1 className={"description"}>{description}</h1>
       <div>
-        <p className={"material-recipes-header"} >Receitas:</p>
+        <h1 className="material-descrption-tittle">Descrição</h1>
+        <p className={"description"}>{description}</p>
+      </div>
+
+      <div>
+        <h1 className={"material-recipes-header"} >Receitas:</h1>
         {/* <ul className={"material-recipes-list"} >{recipes}</ul> */}
       </div>
 

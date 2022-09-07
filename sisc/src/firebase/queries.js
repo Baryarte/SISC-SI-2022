@@ -58,4 +58,16 @@ const getRecipe = async (recipeId) => {
   // access the document data with the .data() method
 };
 
-export { getMaterial, getMaterials, getRecipe };
+// Pega um local pelo Id do local
+const getLocal = async (localId) => {
+  const localRef = doc(db, "locals", localId);
+
+  const local = await getDoc(localRef);
+
+  console.log("local", local.data(), local.id);
+
+  return local;
+  // access the document data with the .data() method
+};
+
+export { getMaterial, getMaterials, getRecipe, getLocal };
