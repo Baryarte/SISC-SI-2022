@@ -21,7 +21,7 @@ const App = () => {
                 <Route path="/papel" element={<Material />} />
                 <Route path="/3" element={<h1>3</h1>} />
                 <Route path="/Locais/ls" element={<Local />} />
-                <Route path="/Locais/2" element={<h1>Local 2</h1>} />
+                <Route path="/Locais/3r" element={<Local />} />
                 <Route path="/Locais/3" element={<h1>Local 3</h1>} />
             </Routes>
             {/*<nav>*/}
