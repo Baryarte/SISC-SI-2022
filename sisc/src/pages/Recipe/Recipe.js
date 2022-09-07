@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from "react";
-import {useLocation, useParams} from "react-router-dom";
-import {getRecipe} from "../../firebase/queries";
+import React, { useEffect, useState } from "react";
+import { useLocation, useParams, Link } from "react-router-dom";
+import { getRecipe } from "../../firebase/queries";
 import "./Recipe.css";
 
 function Recipe(props) {
     const [recipe, setRecipe] = useState();
-    const {recipeId} = useLocation().state;
+    const { recipeId } = useLocation().state;
 
     useEffect(() => {
         (async () => {
@@ -30,7 +30,7 @@ function Recipe(props) {
             <h1 className={"recipe-title"}>{recipe && recipe.name}</h1>
             <span className={"star"}>&#9733;</span>
             <figure>
-                <img className={"recipe-image"} src={recipe && recipe.image}/>
+                <img className={"recipe-image"} src={recipe && recipe.image} />
                 <figcaption>Papel reciclado feito em casa</figcaption>
             </figure>
             <div>
@@ -51,6 +51,11 @@ function Recipe(props) {
                     {steps}
                 </ol>
 
+            </div>
+            <div className={"footer-container"}>
+                <Link className={"footer-button"} to={"/"}>
+                    Página Inicial
+                </Link>
             </div>
         </div>
     );
