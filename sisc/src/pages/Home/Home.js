@@ -17,8 +17,8 @@ function Home() {
             <div>
                 <nav className="reccontainer">
                     <Link className={"reclink"} to={"/papel_reciclado"} state={{ recipeId: "papel reciclado" }} ><img className="rec" src={Img_Papel} alt="papel" /></Link>
-                    <Link className={"reclink"} to={"/papel"} state={{ materialId: "papel" }}><img className="rec" src={Img_Garrafa} alt="garrafa" /></Link>
-                    <Link className={"reclink"} to="3"><img className="rec" src={Img_Pneu} alt="pneu" /></Link>
+                    <Link className={"reclink"} to={"/vaso_de_planta"} state={{ recipeId: "vaso de planta" }}><img className="rec" src={Img_Garrafa} alt="garrafa" /></Link>
+                    <Link className={"reclink"} to={"/mesa_de_pneu"} state={{ recipeId: "mesa de pneu" }}><img className="rec" src={Img_Pneu} alt="pneu" /></Link>
                 </nav>
             </div>
             <div className={"footer-container"}>
