@@ -18,11 +18,11 @@ const App = () => {
                 <Route path="/Locais" element={<Locais />} />
                 <Route path="/Favoritos" element={<h1>Favoritos</h1>} />
                 <Route path="/papel_reciclado" element={<Recipe />} />
-                <Route path="/papel" element={<Material />} />
-                <Route path="/3" element={<h1>3</h1>} />
+                <Route path="/vaso_de_planta" element={<Recipe />} />
+                <Route path="/mesa_de_pneu" element={<Recipe />} />
                 <Route path="/Locais/ls" element={<Local />} />
-                <Route path="/Locais/2" element={<h1>Local 2</h1>} />
-                <Route path="/Locais/3" element={<h1>Local 3</h1>} />
+                <Route path="/Locais/3r" element={<Local />} />
+                <Route path="/Locais/atlas" element={<Local />} />
             </Routes>
             {/*<nav>*/}
 
