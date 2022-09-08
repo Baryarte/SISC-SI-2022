@@ -41,11 +41,29 @@ const getMaterial = async (materialId) => {
 
     const material = await getDoc(materialRef);
 
-    console.log("material", material.data(), material.id);
+    // console.log("material", material.data(), material.id);
 
     return material;
     // access the document data with the .data() method
 };
+
+// Pega as receitas de um material
+const getMaterialRecipes = async (material) => {
+    console.log("material", material.data());
+    const recipes = material.data().recipes;
+    let recipesData = recipes.map(async (recipeObject) => {
+        const recipeName = recipeObject.name;
+        const recipeRef = recipeObject.ref;
+        let recipe = await getDoc(recipeRef);
+        recipe =  recipe.data();
+        return recipe;
+    });
+
+    recipesData = await Promise.all(recipesData);
+
+
+    return recipesData;
+}
 
 // Pega um material pelo Id da receita
 const getRecipe = async (recipeId) => {
@@ -53,11 +71,14 @@ const getRecipe = async (recipeId) => {
 
     const recipe = await getDoc(recipeRef);
 
-    console.log("recipe", recipe.data(), recipe.id);
+
+    // console.log("recipe", recipe.data(), recipe.id);
+
 
     return recipe;
     // access the document data with the .data() method
 };
+
 
 
 // Material  - Ligar ou desligar favoritos
@@ -87,16 +108,19 @@ const setLocationFavorite = async (locationId, value) => {
     });
 }
 
+
 // Pega um local pelo Id do local
 const getLocal = async (localId) => {
-  const localRef = doc(db, "locals", localId);
+    const localRef = doc(db, "locals", localId);
 
-  const local = await getDoc(localRef);
+    const local = await getDoc(localRef);
 
-  console.log("local", local.data(), local.id);
+    // console.log("local", local.data(), local.id);
 
-  return local;
-  // access the document data with the .data() method
+    return local;
+    // access the document data with the .data() method
 };
 
-export {getLocal, getMaterial, getMaterials, getRecipe, setRecipeFavorite, setMaterialFavorite, setLocationFavorite};
+
+export {getLocal, getMaterial, getMaterials, getMaterialRecipes, getRecipe, setRecipeFavorite, setMaterialFavorite, setLocationFavorite};
+
