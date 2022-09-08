@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {useLocation, useParams} from "react-router-dom";
-import {getRecipe} from "../../firebase/queries";
+import {getRecipe, setRecipeFavorite} from "../../firebase/queries";
 import "./Recipe.css";
 
 function Recipe(props) {
     const [recipe, setRecipe] = useState();
-    const [favorite, setFavorite] = useState();
+    const [favorite, setFavorite] = useState(false);
+    const [firstLoad, setFirstLoad] = useState(true);
     const {recipeId} = useLocation().state;
 
 
@@ -13,25 +14,37 @@ function Recipe(props) {
         (async () => {
             const recipeData = await getRecipe(recipeId);
             if (recipeData.exists()) {
-                setRecipe(recipeData.data());
+                const recipe = recipeData.data();
+                setRecipe(recipe);
+                setFavorite(recipe.favorite);
             }
-            console.count("recipeData");
         })();
     }, []);
 
     useEffect(() => {
-        console.log(recipe && recipe.name);
-    }, [recipe]);
+        if (firstLoad) {
+            setFirstLoad(false);
+            return;
+        }
+        console.log("altar bd");
+        (async () => {
+            await setRecipeFavorite(recipeId, favorite);
+        })();
+    }, [favorite]);
+
+
 
     const steps = recipe && recipe.steps.map(step => <li>{step}</li>);
     const ingredients = recipe && recipe.ingredients.map(ingredient => <li>{ingredient}</li>);
     const materials = recipe && recipe.materials.map(material => <li>{material}</li>);
-
+    const favoriteRecipe = () => setFavorite((oldState) => !oldState);
     return (
         <div className={"recipe-page-container"}>
             <div className={"recipe-title-container"}>
                 <h1 className={"recipe-title"}>{recipe && recipe.name}</h1>
-                <span className={favorite ? "star on" : "star off"}>&#9733;</span>
+                <span className={favorite ? "star on" : "star off"} onClick={favoriteRecipe}>
+                    &#9733;
+                </span>
             </div>
             <div className={"recipe-first-row"}>
 
