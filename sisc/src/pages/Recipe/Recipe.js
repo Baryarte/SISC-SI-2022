@@ -26,12 +26,12 @@ function Recipe(props) {
     const materials = recipe && recipe.materials.map(material => <li>{material}</li>);
 
     return (
-        <div>
+        <div className="recipe-container">
             <h1 className={"recipe-title"}>{recipe && recipe.name}</h1>
             <span className={"star"}>&#9733;</span>
             <figure>
                 <img className={"recipe-image"} src={recipe && recipe.image} />
-                <figcaption>Papel reciclado feito em casa</figcaption>
+                <figcaption> </figcaption>
             </figure>
             <div>
                 <h2 className={"recipe-ingredients-header"}>Ingredientes:</h2>

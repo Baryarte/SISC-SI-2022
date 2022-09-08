@@ -1,0 +1,9 @@
+.local-container {
+  margin: 20px auto;
+  width: 90%;
+}
+
+.local-image {
+  min-width: 500px;
+  max-width: 500px;
+}

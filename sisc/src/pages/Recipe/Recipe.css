@@ -1,6 +1,15 @@
-
-.recipe-title{
+.recipe-title {
     font-family: 'Inter', sans-serif;
     font-size: 2rem;
     font-weight: normal;
+}
+
+.recipe-container {
+    margin: 20px auto;
+    width: 90%;
+}
+
+.recipe-image {
+    min-width: 500px;
+    max-width: 500px;
 }
