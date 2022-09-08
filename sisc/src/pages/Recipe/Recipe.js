@@ -9,9 +9,9 @@ function Recipe(props) {
     const [recipe, setRecipe] = useState();
     const [favorite, setFavorite] = useState(false);
     const [firstLoad, setFirstLoad] = useState(true);
-    const {recipeId} = useLocation().state;
-
-
+    const params = useParams();
+    const [recipeId, setRecipeId] = useState(params?.recipeId.replaceAll("_", " "));
+    console.log("recipeId", recipeId, params);
     useEffect(() => {
         (async () => {
             const recipeData = await getRecipe(recipeId);

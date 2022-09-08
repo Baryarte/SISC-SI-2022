@@ -2,17 +2,15 @@ import React, {useState, useEffect} from "react";
 import '../Searchbar/Searchbar.css';
 import Searchbutton from "../Searchbutton";
 
-const Searchbar = () => {
-const [search, setSearch] = useState("");
+const Searchbar = ({search, setSearch, onSearch}) => {
 
-useEffect(() => {
-    console.log(search);
-},[search])
+
+
   return (
     <div className="search-container">
-      <input className="search-box" type="text" placeholder="Busque um material" onChange={event => setSearch(event.target.value)}/>
+      <input onKeyDown={e => e.key === 'Enter' && onSearch()} className="search-box" type="text" placeholder="Busque um material" value={search} onChange={event => setSearch(event.target.value)}/>
       <div>
-        <Searchbutton >Pesquisar</Searchbutton>
+        <Searchbutton onClick={onSearch}>Pesquisar</Searchbutton>
       </div>
     </div>
 
