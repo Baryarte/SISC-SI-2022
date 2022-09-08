@@ -59,6 +59,7 @@ const getRecipe = async (recipeId) => {
     // access the document data with the .data() method
 };
 
+
 // Material  - Ligar ou desligar favoritos
 const setMaterialFavorite = async (materiald, value) => {
     const materialRef = doc(db, "materials", materiald);
@@ -86,4 +87,16 @@ const setLocationFavorite = async (locationId, value) => {
     });
 }
 
-export {getMaterial, getMaterials, getRecipe, setRecipeFavorite, setMaterialFavorite, setLocationFavorite};
+// Pega um local pelo Id do local
+const getLocal = async (localId) => {
+  const localRef = doc(db, "locals", localId);
+
+  const local = await getDoc(localRef);
+
+  console.log("local", local.data(), local.id);
+
+  return local;
+  // access the document data with the .data() method
+};
+
+export {getLocal, getMaterial, getMaterials, getRecipe, setRecipeFavorite, setMaterialFavorite, setLocationFavorite};

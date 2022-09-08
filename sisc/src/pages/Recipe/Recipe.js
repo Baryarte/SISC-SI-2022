@@ -1,6 +1,8 @@
+
 import React, {useEffect, useState} from "react";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation, useParams, Link} from "react-router-dom";
 import {getRecipe, setRecipeFavorite} from "../../firebase/queries";
+
 import "./Recipe.css";
 
 function Recipe(props) {
@@ -39,6 +41,7 @@ function Recipe(props) {
     const materials = recipe && recipe.materials.map(material => <li>{material}</li>);
     const favoriteRecipe = () => setFavorite((oldState) => !oldState);
     return (
+
         <div className={"recipe-page-container"}>
             <div className={"recipe-title-container"}>
                 <h1 className={"recipe-title"}>{recipe && recipe.name}</h1>
@@ -78,6 +81,11 @@ function Recipe(props) {
                 <p className={"recipe-source-header"}>Fonte:</p>
                 <p className={"recipe-source"}>{recipe && recipe.sources}</p>
 
+            </div>
+            <div className={"footer-container"}>
+                <Link className={"footer-button"} to={"/"}>
+                    Página Inicial
+                </Link>
             </div>
         </div>
     );
