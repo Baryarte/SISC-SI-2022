@@ -6,6 +6,7 @@ import {
     where,
     query,
     doc,
+    updateDoc,
 } from "firebase/firestore";
 import {db} from "./firebase-config";
 
@@ -37,6 +38,7 @@ const getMaterials = async (material) => {
 // Pega um material pelo Id do material
 const getMaterial = async (materialId) => {
     const materialRef = doc(db, "materials", materialId);
+
     const material = await getDoc(materialRef);
 
     // console.log("material", material.data(), material.id);
@@ -69,11 +71,42 @@ const getRecipe = async (recipeId) => {
 
     const recipe = await getDoc(recipeRef);
 
+
     // console.log("recipe", recipe.data(), recipe.id);
+
 
     return recipe;
     // access the document data with the .data() method
 };
+
+
+
+// Material  - Ligar ou desligar favoritos
+const setMaterialFavorite = async (materiald, value) => {
+    const materialRef = doc(db, "materials", materiald);
+
+    await updateDoc(materialRef, {
+        favorite: value,
+    });
+}
+
+// Recipe - Ligar ou desligar favoritos
+const setRecipeFavorite = async (recipeId, value) => {
+    const recipeRef = doc(db, "recipes", recipeId);
+
+    await updateDoc(recipeRef, {
+        favorite: value,
+    });
+}
+
+// Location - Ligar ou desligar favoritos
+const setLocationFavorite = async (locationId, value) => {
+    const locationRef = doc(db, "locals", locationId);
+
+    await updateDoc(locationRef, {
+        favorite: value,
+    });
+}
 
 
 // Pega um local pelo Id do local
@@ -89,4 +122,5 @@ const getLocal = async (localId) => {
 };
 
 
-export {getMaterial, getMaterials, getMaterialRecipes, getRecipe, getLocal};
+export {getLocal, getMaterial, getMaterials, getMaterialRecipes, getRecipe, setRecipeFavorite, setMaterialFavorite, setLocationFavorite};
+

@@ -14,8 +14,8 @@ export function Locais() {
             <h1>Mais pesquisados:</h1>
             <div className="reccontainer">
                 <Link className={"reclink"} to={"ls"} state={{ localId: "ls" }}><img className="rec2" src={Img_Ls} alt="ls" /></Link>
-                <Link to="2"><img className="rec2" src={Img_3r} alt="3r" /></Link>
-                <Link to="3"><img className="rec2" src={Img_Atlas} alt="Atlas" /></Link>
+                <Link className={"reclink"} to={"3r"} state={{ localId: "3r" }}><img className="rec2" src={Img_3r} alt="3r" /></Link>
+                <Link className={"reclink"} to={"atlas"} state={{ localId: "atlas" }}><img className="rec2" src={Img_Atlas} alt="Atlas" /></Link>
             </div>
             <div className={"footer-container"}>
                 <Link className={"footer-button"} to={"/"}>
