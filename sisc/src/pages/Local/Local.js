@@ -31,12 +31,12 @@ function Local(props) {
   const description = local && local.description;
 
   return (
-    <div>
+    <div className="local-container">
       <h1 className={"local-title"}>{local && local.name}</h1>
       <span className={"star"}>&#9733;</span>
       <figure>
         <img className={"local-image"} src={local && local.image} />
-        <figcaption>Imagem do banco de dados</figcaption>
+        <figcaption> </figcaption>
       </figure>
       <div className="local-adress">
         <h1 className="local-adress-header">Endereço:</h1>

@@ -41,7 +41,6 @@ function Recipe(props) {
     const materials = recipe && recipe.materials.map(material => <li>{material}</li>);
     const favoriteRecipe = () => setFavorite((oldState) => !oldState);
     return (
-
         <div className={"recipe-page-container"}>
             <div className={"recipe-title-container"}>
                 <h1 className={"recipe-title"}>{recipe && recipe.name}</h1>

@@ -7,7 +7,6 @@
     font-size: 2rem;
     font-weight: normal;
 }
-
 .recipe-title-container{
     display: flex;
     flex-direction: row;
@@ -106,6 +105,3 @@
     font-family: 'Inter', sans-serif;
     margin-left: 1%;
 }
-
-
-
