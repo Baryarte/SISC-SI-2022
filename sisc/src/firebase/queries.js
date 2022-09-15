@@ -21,24 +21,24 @@ import {db} from "./firebase-config";
 //     }
 // }
 
-// Pega uma array de materiais pelo tipo do material
-const getMaterials = async (material) => {
-    const materialsRef = collection(db, "materials");
+// Pega todos os materiais
+const getMaterials = async () => {
+    const materialsRef = await collection(db, "materials");
 
-    const q = query(materialsRef, where("type", "==", material));
-
+    // const q = query(materialsRef, where("type", "==", material));
+    const q = await query(materialsRef);
     const querySnapshot = await getDocs(q);
 
-    console.log("querySnapshot");
-    querySnapshot.forEach((doc) => console.log(doc.id, " => ", doc.data()));
-
-    return querySnapshot;
+    let result = [];
+    await ( querySnapshot.forEach((doc) => result.push(doc.data()) ));
+    return result;
 };
 
 // Pega um material pelo Id do material
 const getMaterial = async (materialId) => {
-    const materialRef = doc(db, "materials", materialId);
 
+    const materialRef = doc(db, "materials", materialId);
+    console.log("materialRef", materialRef);
     const material = await getDoc(materialRef);
 
     // console.log("material", material.data(), material.id);
@@ -49,7 +49,10 @@ const getMaterial = async (materialId) => {
 
 // Pega as receitas de um material
 const getMaterialRecipes = async (material) => {
-    console.log("material", material.data());
+    console.log("material", material.data(), material);
+    if (!material?.data()){
+        return null;
+    }
     const recipes = material.data().recipes;
     let recipesData = recipes.map(async (recipeObject) => {
         const recipeName = recipeObject.name;

@@ -1,0 +1,39 @@
+.search-page-container{
+    padding: 3rem;
+
+}
+
+.search-page-title{
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.search-page-list{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.search-nothing-found{
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-top: 5%;
+    margin-bottom: 2%;
+    margin-left: 5%;
+    text-align: start;
+}
+
+.search-list-item{
+    margin: .5% 0;
+}
+
+.search-list-link{
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-left: 5%;
+    text-align: start;
+}
